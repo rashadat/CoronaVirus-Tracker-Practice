@@ -1,0 +1,45 @@
+<div class="container">
+
+<h1>Coronavirus Tracker by Rashadat®</h1>
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker application by Rashadat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+<p>Proqramda hal-hazırda dünya üzrə  koronavirusa yoluxan insanların sayı göstərilir</p>
+
+<div class="jumbotron">
+    <h1 class="display-4"th:text = "${totalReportedCases}"></h1>
+    <p class="lead">Bu günə qədər olan yoluxma sayı</p>
+
+</div>
+
+<div class="container">
+    <table class="table">
+    <tr>
+        <th>State</th>
+        <th>Country</th>
+        <th>Total cases reported</th>
+        <th>Changes since last day</th>
+    </tr>
+    <tr th:each="locationStat : ${locationStats}">
+        <td th:text="${locationStat.state}">Onions</td>
+        <td th:text="${locationStat.country}"></td>
+        <td th:text="${locationStat.latestTotalCases}"></td>
+        <td th:text="${locationStat.diffFromPrevDay}"></td>
+    </tr>
+</table>
+</div>
+</body>
+
+</html>
